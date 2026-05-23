@@ -2,14 +2,22 @@ namespace ELTSequencer
 {
     public class TransformCommand : ICommand
     {
+        private readonly string _sqlFilePath;
+
+        public TransformCommand(string sqlFilePath)
+        {
+            _sqlFilePath = sqlFilePath;
+        }
+
         public bool Execute(ContextBag context)
         {
             try
             {
-                // Example: Transform data from context
                 if (context.ContainsKey("LoadedData"))
                 {
-                    context["TransformedData"] = $"Transformed: {context["LoadedData"]}";
+                    // Simulate executing the SQL file
+                    string transformedData = $"Transformed with {_sqlFilePath}: {context["LoadedData"]}";
+                    context["TransformedData"] = transformedData;
                     return true;
                 }
                 return false;
@@ -20,4 +28,5 @@ namespace ELTSequencer
             }
         }
     }
+
 }

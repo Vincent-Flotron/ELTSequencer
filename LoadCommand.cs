@@ -6,7 +6,6 @@ namespace ELTSequencer
         {
             try
             {
-                // Example: Load data from context
                 if (context.ContainsKey("ExtractedData"))
                 {
                     context["LoadedData"] = context["ExtractedData"];
